@@ -1,0 +1,44 @@
+<div >
+    <mat-toolbar color="primary">chatting page</mat-toolbar>
+<div class="parent" *ngIf="authService.userData as user">
+    <div style="padding-left: 20px ; padding-top: 20px;">
+        <h2>Hello user : <b>{{user.email}}</b></h2>
+    </div>
+    <div style="padding-left: 20px ;">
+        Email verification Status : <strong>{{user.emailVerified}}</strong>
+    </div>
+  
+</div>
+<div style="padding-top:30px ;">
+    <mat-card>
+        <div  *ngIf="nameFinal=='default'">
+            <mat-form-field appearance="fill" color="light">
+                <mat-label>Username</mat-label>
+                <input [(ngModel)]="name" placeholder="username" matInput placeholder="Username">
+            </mat-form-field><br>
+            
+            <button mat-raised-button (click)="submitName()" >Set User</button>
+        
+        </div>
+        
+        <div  class="chatbox" style="padding-top: 20px;">
+            <mat-form-field appearance="fill" color="light">
+                <mat-label>Message</mat-label>
+                <input [(ngModel)]="msgVal" placeholder="chat" matInput placeholder="message">
+            </mat-form-field><br>
+            
+            <button mat-raised-button (click)="create()" >Send Message</button>
+        
+        </div>
+        <div class="chatbox" style="padding-top: 20px;">
+            <div class="chat-container" style="background-color: 'primary';" *ngFor="let item of messagesList | async">
+                <div style="padding-left: 5px; background-color: #9d8bbc;">
+                    <p style="margin-bottom: 0px;">{{item.name}}</p>
+                <h2>{{item.message}}</h2>
+                </div>
+                
+            </div>
+        </div>
+    </mat-card>
+</div>
+</div>

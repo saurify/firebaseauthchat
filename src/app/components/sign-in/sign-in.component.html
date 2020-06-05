@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">chatting page</mat-toolbar>
+<div class="parent">
+  <mat-card>
+
+      <label>Email</label><br>
+      <input [(ngModel)]="email" placeholder="Ex. pat@example.com">
+      <br><br>
+      <label>Password</label><br>
+      <input [(ngModel)]="password" placeholder="password">
+    
+    <div style="padding-top: 10px;">
+      <button mat-raised-button	color="primary" (click)="signIn()" >Sign in</button>
+    </div>
+    
+    <div style=" padding-top: 20px;">
+      <i> Do not have account?</i><br>
+      <button mat-raised-button color="primary" style="margin: auto;" routerLink="/register-user">Sign up</button>
+      <button mat-raised-button color="primary" style="margin: 5px;" (click)="authService.GoogleAuth()">continue with google</button>
+  </div>
+    
+  </mat-card>
+</div>

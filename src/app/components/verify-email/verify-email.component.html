@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">chatting page</mat-toolbar>
+<h1 style="padding-left: 20px;">Thanks for Registering</h1>
+<div *ngIf="authService.userData as user">
+    <p style="padding-left: 20px;">Please check your email inbox at <strong>{{user.email}}</strong></p>
+    <p style="padding-left: 20px;">verify the link sent to your email and go to sign in page</p>
+    <div style="padding-left: 20px;">
+        <button mat-raised-button color="primary" (click)="sendVerificationMail()">Send email again</button></div>
+        <div style="padding-left: 20px; padding-top: 20px;">
+        <button mat-raised-button color="primary"  routerLink="/sign-in">Sign In</button>
+    </div>
+    
+</div>
